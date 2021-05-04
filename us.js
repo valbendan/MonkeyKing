@@ -4,6 +4,7 @@
 // @match       *://tieba.baidu.com/*
 // @match       *://*.csdn.net/*
 // @match       *://*.zhihu.com/*
+// @match       *://*.oschina.net/*
 // @grant       none
 // @version     1.0
 // @author      da
@@ -33,6 +34,20 @@
         setInterval(() => {
             document.querySelector("#passportbox > span")?.click();
         }, interval);
+    }
+
+    function oschinaAutoRedirect() {
+        if (!location.host.endsWith("oschina.net")) {
+            return;
+        }
+
+        if (location.pathname.startsWith("/action/GoToLink")) {
+            const url = new URL(document.location.href);
+            const target_url = url.searchParams.get("url");
+            if (target_url) {
+                document.location.href = decodeURI(target_url);
+            }
+        }
     }
 
     /// 知乎重新定向
@@ -65,5 +80,6 @@
     baiduBBSHideLogin();
     csdnHideLogin();
     zhihuAutoRedirect();
+    oschinaAutoRedirect();
 })();
 
