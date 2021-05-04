@@ -8,7 +8,7 @@
 // @grant       none
 // @version     1.0
 // @author      da
-// @description 百度贴吧登录屏蔽, CSDN 登录屏蔽
+// @description 百度贴吧登录屏蔽, CSDN 登录屏蔽, 知乎自动重定向，开源中国自动重定向
 // ==/UserScript==
 
 
