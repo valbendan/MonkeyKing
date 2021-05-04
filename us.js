@@ -20,11 +20,8 @@
         if (document.location.host !== "tieba.baidu.com") {
             return;
         }
-        setInterval(function () {
-            let e = document.querySelector("span[class='close-btn']");
-            if (e) {
-                e.click();
-            }
+        setInterval(() => {
+            document.querySelector("span[class='close-btn']")?.click();
         }, interval);
     }
 
@@ -33,8 +30,8 @@
         if (document.location.host.endsWith("csdn.net") === false) {
             return;
         }
-        setInterval(function () {
-            document.querySelector("#passportbox > span").click();
+        setInterval(() => {
+            document.querySelector("#passportbox > span")?.click();
         }, interval);
     }
 
