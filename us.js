@@ -36,6 +36,17 @@
         }, interval);
     }
 
+    function csdnAutoRedirect() {
+        // https://link.csdn.net/?target=http%3A%2F%2Fmiaotixing.com%2F
+        if (location.host.startsWith("link.csdn.net")) {
+            const url = new URL(document.location.href);
+            const target_url = url.searchParams.get("target");
+            if (target_url) {
+                document.location.href = decodeURI(target_url);
+            }
+        }
+    }
+
     function oschinaAutoRedirect() {
         if (!location.host.endsWith("oschina.net")) {
             return;
@@ -81,5 +92,6 @@
     csdnHideLogin();
     zhihuAutoRedirect();
     oschinaAutoRedirect();
+    csdnAutoRedirect();
 })();
 
