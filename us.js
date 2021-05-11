@@ -5,6 +5,7 @@
 // @match       *://*.csdn.net/*
 // @match       *://*.zhihu.com/*
 // @match       *://*.oschina.net/*
+// @match       *://www.jianshu.com/*
 // @grant       none
 // @version     1.0
 // @author      da
@@ -88,10 +89,19 @@
         });
     }
 
+    function jianshuAutoClose() {
+        if (document.location.host.endsWith("")) {
+            setInterval(() => {
+                document.querySelector(".anticon-close")?.click();
+            }, interval);
+        }
+    }
+
     baiduBBSHideLogin();
     csdnHideLogin();
     zhihuAutoRedirect();
     oschinaAutoRedirect();
     csdnAutoRedirect();
+    jianshuAutoClose();
 })();
 
