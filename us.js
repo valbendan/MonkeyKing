@@ -14,6 +14,8 @@
 // @description 百度贴吧登录屏蔽, CSDN 登录屏蔽, 知乎自动重定向，开源中国自动重定向
 // ==/UserScript==
 
+// violent monkey metadata docs
+// https://violentmonkey.github.io/api/metadata-block/
 
 (function () {
 
