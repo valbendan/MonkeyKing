@@ -120,6 +120,18 @@
         }
     }
 
+    function jianshuAutoConvertUrl() {
+        if (location.host.endsWith("jianshu.com")) {
+            [...document.querySelectorAll('a')].map(
+                (a) => {
+                    const url = new URL(a.href);
+                    if (url.host === 'link.jianshu.com' && url.searchParams.get('t')) {
+                        a.href = url.searchParams.get('t');
+                    }
+                });
+        }
+    }
+
     baiduBBSHideLogin();
     csdnHideLogin();
     zhihuAutoRedirect();
@@ -127,5 +139,6 @@
     csdnAutoRedirect();
     jianshuAutoClose();
     jianshuAutoRedirect();
+    jianshuAutoConvertUrl();
 })();
 
