@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name        da的暴力猴脚本
-// @namespace   ViolentMonkey Scripts
+// @name:zh-CN  da的暴力猴脚本
+// @namespace   https://github.com/valbendan/MonkeyKing
 // @match       *://tieba.baidu.com/*
 // @match       *://*.csdn.net/*
 // @match       *://*.zhihu.com/*
@@ -9,6 +10,7 @@
 // @grant       none
 // @version     1.0
 // @author      da
+// @homepageURL https://github.com/valbendan/MonkeyKing
 // @description 百度贴吧登录屏蔽, CSDN 登录屏蔽, 知乎自动重定向，开源中国自动重定向
 // ==/UserScript==
 
