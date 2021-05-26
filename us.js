@@ -5,7 +5,7 @@
 // @match       *://*.csdn.net/*
 // @match       *://*.zhihu.com/*
 // @match       *://*.oschina.net/*
-// @match       *://www.jianshu.com/*
+// @match       *://*.jianshu.com/*
 // @grant       none
 // @version     1.0
 // @author      da
@@ -90,10 +90,33 @@
     }
 
     function jianshuAutoClose() {
-        if (document.location.host.endsWith("")) {
+        if (document.location.host.endsWith("jianshu.com")) {
             setInterval(() => {
                 document.querySelector(".anticon-close")?.click();
             }, interval);
+        }
+    }
+
+    function jianshuAutoRedirect() {
+        if (document.location.host.endsWith("jianshu.com") === false) {
+            console.log("不是简书");
+            return;
+        }
+
+        if (document.location.host.startsWith("link.jianshu.com")) {
+            const a = new URLSearchParams(document.location.href);
+            const url = a.get('t');
+            if (url) {
+                document.location.href = url;
+            }
+        }
+
+        if (document.location.pathname.startsWith("/go-wild")) {
+            const a = new URLSearchParams(document.location.href);
+            const url = a.get('url');
+            if (url) {
+                document.location.href = url;
+            }
         }
     }
 
@@ -103,5 +126,6 @@
     oschinaAutoRedirect();
     csdnAutoRedirect();
     jianshuAutoClose();
+    jianshuAutoRedirect();
 })();
 
