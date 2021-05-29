@@ -68,6 +68,14 @@
         }
     }
 
+    function zhihuAutoClose() {
+        if (document.location.host.endsWith("zhihu.com")) {
+            setInterval(() => {
+                document.querySelector(".Modal-closeButton")?.click();
+            }, interval);
+        }
+    }
+
     /// 知乎重新定向
     function zhihuAutoRedirect() {
         if (location.host === 'link.zhihu.com') {
@@ -140,6 +148,7 @@
 
     baiduBBSHideLogin();
     csdnHideLogin();
+    zhihuAutoClose();
     zhihuAutoRedirect();
     oschinaAutoRedirect();
     csdnAutoRedirect();
