@@ -160,7 +160,12 @@
         const li = document.createElement("li");
         li.innerHTML = `<a href="https://sourcegraph.com/github.com/${document.location.pathname}">SourceGraph打开</a>`;
 
-        document.querySelector(".pagehead-actions")?.appendChild(li);
+        const ul = document.querySelector(".pagehead-actions");
+        if (ul) {
+            ul.appendChild(li);
+        } else {
+            console.error("github ul is not found");
+        }
     }
 
 
