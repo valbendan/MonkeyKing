@@ -7,6 +7,7 @@
 // @match       *://*.zhihu.com/*
 // @match       *://*.oschina.net/*
 // @match       *://*.jianshu.com/*
+// @match       *://github.com/*
 // @grant       none
 // @version     1.0
 // @author      da
@@ -146,6 +147,23 @@
         }
     }
 
+
+    /**
+     * open github repo in source graph
+     */
+    function githubInSourceGraph() {
+        if (!document.location.host.endsWith("github.com")) {
+            return;
+        }
+        console.log("github run");
+
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="https://sourcegraph.com/github.com/${document.location.pathname}">SourceGraph打开</a>`;
+
+        document.querySelector(".pagehead-actions")?.appendChild(li);
+    }
+
+
     baiduBBSHideLogin();
     csdnHideLogin();
     zhihuAutoClose();
@@ -155,5 +173,6 @@
     jianshuAutoClose();
     jianshuAutoRedirect();
     jianshuAutoConvertUrl();
+    githubInSourceGraph();
 })();
 
