@@ -106,8 +106,9 @@
     }
 
     function juejinAutoRedirect() {
-        if (document.location.href.contains("link.juejin.cn")) {
-            const target = document.location.href.searchParams.get("target");
+        if (document.location.host.startsWith("link.juejin.cn")) {
+            const url = new URL(document.location.href);
+            const target = url.searchParams.get("target");
             if (target) {
                 document.location.href = target;
             }
