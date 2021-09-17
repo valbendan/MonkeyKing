@@ -8,6 +8,7 @@
 // @match       *://*.oschina.net/*
 // @match       *://*.jianshu.com/*
 // @match       *://github.com/*
+// @match       *://link.juejin.cn/*
 // @grant       none
 // @version     1.0
 // @author      da
@@ -104,6 +105,15 @@
         });
     }
 
+    function juejinAutoRedirect() {
+        if (document.location.href.contains("link.juejin.cn")) {
+            const target = document.location.href.searchParams.get("target");
+            if (target) {
+                document.location.href = target;
+            }
+        }
+    }
+
     function jianshuAutoClose() {
         if (document.location.host.endsWith("jianshu.com")) {
             setInterval(() => {
@@ -175,6 +185,7 @@
     zhihuAutoRedirect();
     oschinaAutoRedirect();
     csdnAutoRedirect();
+    juejinAutoRedirect();
     jianshuAutoClose();
     jianshuAutoRedirect();
     jianshuAutoConvertUrl();
