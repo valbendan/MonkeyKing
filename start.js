@@ -59,7 +59,7 @@
 
         if (url.host === 'zh.wikipedia.org') {
             const parts = url.pathname.split("/");
-            if (parts[1] in ['wiki', 'zh']) {
+            if (['wiki', 'zh'].indexOf(parts[1]) > 0) {
                 parts[1] = "zh-cn";
                 document.location.href = parts.join("/");
             }
