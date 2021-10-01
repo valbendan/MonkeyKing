@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name        da的暴力猴脚本 on start
-// @name:zh-CN  da的暴力猴脚本 on start
+// @name        da的暴力猴脚本 on document start
+// @name:zh-CN  da的暴力猴脚本 on document start
 // @namespace   https://github.com/valbendan/MonkeyKing
 // @match       *://*.csdn.net/*
 // @match       *://*.oschina.net/*
