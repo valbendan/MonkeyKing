@@ -4,7 +4,6 @@
 // @namespace   https://github.com/valbendan/MonkeyKing
 // @match       *://tieba.baidu.com/*
 // @match       *://*.zhihu.com/*
-// @match       *://*.oschina.net/*
 // @match       *://*.jianshu.com/*
 // @match       *://github.com/*
 // @match       *://link.juejin.cn/*
@@ -46,19 +45,6 @@
         }, interval);
     }
 
-    function oschinaAutoRedirect() {
-        if (!location.host.endsWith("oschina.net")) {
-            return;
-        }
-
-        if (location.pathname.startsWith("/action/GoToLink")) {
-            const url = new URL(document.location.href);
-            const target_url = url.searchParams.get("url");
-            if (target_url) {
-                document.location.href = decodeURI(target_url);
-            }
-        }
-    }
 
     function zhihuAutoClose() {
         if (document.location.host.endsWith("zhihu.com")) {
@@ -174,7 +160,6 @@
     csdnHideLogin();
     zhihuAutoClose();
     zhihuAutoRedirect();
-    oschinaAutoRedirect();
     juejinAutoRedirect();
     jianshuAutoClose();
     jianshuAutoRedirect();

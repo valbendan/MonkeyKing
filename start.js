@@ -3,6 +3,7 @@
 // @name:zh-CN  da的暴力猴脚本 on start
 // @namespace   https://github.com/valbendan/MonkeyKing
 // @match       *://*.csdn.net/*
+// @match       *://*.oschina.net/*
 // @match       *://zh.wikisource.org/*
 // @match       *://zh.wikipedia.org/*
 // @run-at      document-start
@@ -19,6 +20,20 @@
 // https://violentmonkey.github.io/api/metadata-block/
 
 (function () {
+
+    function oschinaAutoRedirect() {
+        if (!location.host.endsWith("oschina.net")) {
+            return;
+        }
+
+        if (location.pathname.startsWith("/action/GoToLink")) {
+            const url = new URL(document.location.href);
+            const target_url = url.searchParams.get("url");
+            if (target_url) {
+                document.location.href = decodeURI(target_url);
+            }
+        }
+    }
 
     function csdnAutoRedirect() {
         // https://link.csdn.net/?target=http%3A%2F%2Fmiaotixing.com%2F
@@ -50,5 +65,6 @@
 
 
     csdnAutoRedirect();
+    oschinaAutoRedirect();
     wikipediaAutoRedirect();
 })();
