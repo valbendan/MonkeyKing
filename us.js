@@ -10,6 +10,7 @@
 // @match       *://github.com/*
 // @match       *://link.juejin.cn/*
 // @match       *://zh.wikisource.org/*
+// @match       *://zh.wikipedia.org/*
 // @grant       none
 // @version     1.0
 // @author      da
@@ -186,6 +187,12 @@
         if (url.host === 'zh.wikisource.org' && url.pathname.startsWith("/wiki")) {
             const parts = url.pathname.split("/");
             parts[1] = "zh-hans";
+            document.location.href = parts.join("/");
+        }
+
+        if (url.host === 'zh.wikipedia.org' && url.pathname.startsWith("/wiki")) {
+            const parts = url.pathname.split("/");
+            parts[1] = "zh-cn";
             document.location.href = parts.join("/");
         }
     }
