@@ -4,6 +4,7 @@
 // @namespace   https://github.com/valbendan/MonkeyKing
 // @match       *://*.csdn.net/*
 // @match       *://*.oschina.net/*
+// @match       *://link.juejin.cn/*
 // @match       *://zh.wikisource.org/*
 // @match       *://zh.wikipedia.org/*
 // @run-at      document-start
@@ -63,8 +64,19 @@
         }
     }
 
+    function juejinAutoRedirect() {
+        if (document.location.host.startsWith("link.juejin.cn")) {
+            const url = new URL(document.location.href);
+            const target = url.searchParams.get("target");
+            if (target) {
+                document.location.href = target;
+            }
+        }
+    }
+
 
     csdnAutoRedirect();
+    juejinAutoRedirect();
     oschinaAutoRedirect();
     wikipediaAutoRedirect();
 })();
