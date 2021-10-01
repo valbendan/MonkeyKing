@@ -57,10 +57,12 @@
             document.location.href = parts.join("/");
         }
 
-        if (url.host === 'zh.wikipedia.org' && url.pathname.startsWith("/wiki")) {
+        if (url.host === 'zh.wikipedia.org') {
             const parts = url.pathname.split("/");
-            parts[1] = "zh-cn";
-            document.location.href = parts.join("/");
+            if (parts[1] in ['wiki', 'zh']) {
+                parts[1] = "zh-cn";
+                document.location.href = parts.join("/");
+            }
         }
     }
 
