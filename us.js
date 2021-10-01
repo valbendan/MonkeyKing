@@ -9,6 +9,7 @@
 // @match       *://*.jianshu.com/*
 // @match       *://github.com/*
 // @match       *://link.juejin.cn/*
+// @match       *://zh.wikisource.org/*
 // @grant       none
 // @version     1.0
 // @author      da
@@ -179,6 +180,16 @@
         }
     }
 
+    function wikipediaAutoRedirect() {
+        const url = new URL(document.location.href);
+
+        if (url.host === 'zh.wikisource.org' && url.pathname.startsWith("/wiki")) {
+            const parts = url.pathname.split("/");
+            parts[1] = "zh-hans";
+            document.location.href = parts.join("/");
+        }
+    }
+
 
     baiduBBSHideLogin();
     csdnHideLogin();
@@ -191,5 +202,6 @@
     jianshuAutoRedirect();
     jianshuAutoConvertUrl();
     githubInSourceGraph();
+    wikipediaAutoRedirect();
 })();
 
