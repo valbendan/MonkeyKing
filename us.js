@@ -6,8 +6,6 @@
 // @match       *://*.zhihu.com/*
 // @match       *://*.jianshu.com/*
 // @match       *://github.com/*
-// @match       *://zh.wikisource.org/*
-// @match       *://zh.wikipedia.org/*
 // @grant       none
 // @version     1.0
 // @author      da
