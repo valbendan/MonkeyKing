@@ -11,7 +11,7 @@
 // @grant       none
 // @version     1.0
 // @author      da
-// @downloadURL https://cdn.jsdelivr.net/gh/valbendan/MonkeyKing@main/us.js
+// @downloadURL https://cdn.jsdelivr.net/gh/valbendan/MonkeyKing@main/start.js
 // @supportURL  https://github.com/valbendan/MonkeyKing/issues
 // @homepageURL https://github.com/valbendan/MonkeyKing
 // @description 维基百科自动重定向
