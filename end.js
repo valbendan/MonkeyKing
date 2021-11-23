@@ -7,6 +7,7 @@
 // @match       *://*.jianshu.com/*
 // @match       *://github.com/*
 // @match       *://stackoverflow.com/*
+// @match       https://askubuntu.com/*
 // @match       *://*.csdn.net/*
 // @grant       none
 // @version     1.0
@@ -149,6 +150,7 @@
      */
     function stackoverflow() {
         document.querySelector('.js-accept-cookies')?.click();
+        document.querySelector('.js-dismiss')?.click();
     }
 
 
