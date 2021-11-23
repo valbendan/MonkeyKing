@@ -6,6 +6,7 @@
 // @match       *://*.zhihu.com/*
 // @match       *://*.jianshu.com/*
 // @match       *://github.com/*
+// @match       *://stackoverflow.com/*
 // @grant       none
 // @version     1.0
 // @author      da
@@ -112,13 +113,12 @@
 
     function jianshuAutoConvertUrl() {
         if (location.host.endsWith("jianshu.com")) {
-            [...document.querySelectorAll('a')].map(
-                (a) => {
-                    const url = new URL(a.href);
-                    if (url.host === 'link.jianshu.com' && url.searchParams.get('t')) {
-                        a.href = url.searchParams.get('t');
-                    }
-                });
+            [...document.querySelectorAll('a')].map((a) => {
+                const url = new URL(a.href);
+                if (url.host === 'link.jianshu.com' && url.searchParams.get('t')) {
+                    a.href = url.searchParams.get('t');
+                }
+            });
         }
     }
 
@@ -143,6 +143,13 @@
         }
     }
 
+    /**
+     * stackoverflow helper
+     */
+    function stackoverflow() {
+        document.querySelector('.js-accept-cookies')?.click();
+    }
+
 
     baiduBBSHideLogin();
     csdnHideLogin();
@@ -152,5 +159,6 @@
     jianshuAutoRedirect();
     jianshuAutoConvertUrl();
     githubInSourceGraph();
+    stackoverflow();
 })();
 
