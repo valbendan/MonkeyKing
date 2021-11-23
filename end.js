@@ -7,6 +7,7 @@
 // @match       *://*.jianshu.com/*
 // @match       *://github.com/*
 // @match       *://stackoverflow.com/*
+// @match       *://*.csdn.net/*
 // @grant       none
 // @version     1.0
 // @author      da
