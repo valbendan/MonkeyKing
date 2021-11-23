@@ -7,6 +7,7 @@
 // @match       *://*.jianshu.com/*
 // @match       *://github.com/*
 // @match       *://stackoverflow.com/*
+// @match       https://serverfault.com/*
 // @match       https://askubuntu.com/*
 // @match       *://*.csdn.net/*
 // @grant       none
