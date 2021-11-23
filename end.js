@@ -25,14 +25,18 @@
 
     const interval = 50;
 
+    function runWithInterval(func) {
+        setInterval(func, interval);
+    }
+
     /// 百度贴吧登录屏蔽
     function baiduBBSHideLogin() {
         if (document.location.host !== "tieba.baidu.com") {
             return;
         }
-        setInterval(() => {
+        runWithInterval(() => {
             document.querySelector("span[class='close-btn']")?.click();
-        }, interval);
+        });
     }
 
     /// CSDN 登录屏蔽
@@ -40,17 +44,17 @@
         if (document.location.host.endsWith("csdn.net") === false) {
             return;
         }
-        setInterval(() => {
+        runWithInterval(() => {
             document.querySelector("#passportbox > span")?.click();
-        }, interval);
+        });
     }
 
 
     function zhihuAutoClose() {
         if (document.location.host.endsWith("zhihu.com")) {
-            setInterval(() => {
+            runWithInterval(() => {
                 document.querySelector(".Modal-closeButton")?.click();
-            }, interval);
+            });
         }
     }
 
@@ -84,9 +88,9 @@
 
     function jianshuAutoClose() {
         if (document.location.host.endsWith("jianshu.com")) {
-            setInterval(() => {
+            runWithInterval(() => {
                 document.querySelector(".anticon-close")?.click();
-            }, interval);
+            });
         }
     }
 
@@ -149,8 +153,10 @@
      * stackoverflow helper
      */
     function stackoverflow() {
-        document.querySelector('.js-accept-cookies')?.click();
-        document.querySelector('.js-dismiss')?.click();
+        runWithInterval(() => {
+            document.querySelector('.js-accept-cookies')?.click();
+            document.querySelector('.js-dismiss')?.click();
+        });
     }
 
 
