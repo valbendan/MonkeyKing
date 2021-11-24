@@ -156,7 +156,7 @@
      */
     function stackoverflow() {
         let cookies = null;
-        let dismiss = false;
+        let dismiss = null;
         runWithInterval(() => {
             if (!cookies) {
                 cookies = document.querySelector('.js-accept-cookies');
