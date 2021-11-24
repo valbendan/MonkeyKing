@@ -7,6 +7,7 @@
 // @match       *://*.jianshu.com/*
 // @match       *://github.com/*
 // @match       *://stackoverflow.com/*
+// @match       *://*.stackexchange.com/*
 // @match       https://serverfault.com/*
 // @match       https://askubuntu.com/*
 // @match       *://*.csdn.net/*
