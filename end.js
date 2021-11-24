@@ -155,9 +155,17 @@
      * stackoverflow helper
      */
     function stackoverflow() {
+        let cookies = null;
+        let dismiss = false;
         runWithInterval(() => {
-            document.querySelector('.js-accept-cookies')?.click();
-            document.querySelector('.js-dismiss')?.click();
+            if (!cookies) {
+                cookies = document.querySelector('.js-accept-cookies');
+                cookies?.click();
+            }
+            if (!dismiss) {
+                dismiss = document.querySelector('.js-dismiss');
+                dismiss?.click();
+            }
         });
     }
 
