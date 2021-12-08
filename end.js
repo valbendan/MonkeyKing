@@ -12,6 +12,7 @@
 // @match       https://serverfault.com/*
 // @match       https://askubuntu.com/*
 // @match       *://*.csdn.net/*
+// @run-at      document-end
 // @grant       none
 // @version     1.0
 // @author      da

@@ -22,6 +22,25 @@
 
 (function () {
 
+    /**
+     * 通用自动跳转
+     */
+    function genericAutoRedirect() {
+        const url = new URL(location.href);
+        const target = url.searchParams["target"];
+        if (!target) {
+            return;
+        }
+
+        try {
+            const v = new URL(target);
+            location.href = v.href;
+        }
+        catch (e) {
+            console.error("target is not url:", target);
+        }
+    }
+
     function oschinaAutoRedirect() {
         if (!location.host.endsWith("oschina.net")) {
             return;
@@ -81,4 +100,5 @@
     juejinAutoRedirect();
     oschinaAutoRedirect();
     wikipediaAutoRedirect();
+    genericAutoRedirect();
 })();
