@@ -26,13 +26,6 @@
 
 (function () {
 
-    const interval = 50;
-
-    function runWithInterval(func) {
-        setInterval(func, interval);
-    }
-
-
     class Helper {
         /**
          * 检查 是否以 host 结束
@@ -45,16 +38,23 @@
 
         /**
          * 点击 css selector 选择的元素
+         *
+         * 仅仅需要点击一次
+         *
          * @param {string} selector
          */
-        static clickOnSelector(selector) {
-            /**
-             * @type {HTMLButtonElement}
-             */
-            const btn = document.querySelector(selector);
-            if (btn) {
-                btn.click();
-            }
+        static onceClickOnSelector(selector) {
+            const interval = setInterval(() => {
+                /**
+                 * @type {HTMLButtonElement}
+                 */
+                const btn = document.querySelector(selector);
+                if (btn) {
+                    console.info("click on:", btn);
+                    btn.click();
+                    clearInterval(interval);
+                }
+            }, 50);
         }
     }
 
@@ -64,9 +64,7 @@
         if (document.location.host !== "tieba.baidu.com") {
             return;
         }
-        runWithInterval(() => {
-            Helper.clickOnSelector("span[class='close-btn']");
-        });
+        Helper.onceClickOnSelector("span[class='close-btn']");
     }
 
     /// CSDN 登录屏蔽
@@ -74,17 +72,13 @@
         if (Helper.hostEndWith("csdn.net") === false) {
             return;
         }
-        runWithInterval(() => {
-            Helper.clickOnSelector("#passportbox > span");
-        });
+        Helper.onceClickOnSelector("#passportbox > span");
     }
 
 
     function zhihuAutoClose() {
         if (Helper.hostEndWith("zhihu.com")) {
-            runWithInterval(() => {
-                Helper.clickOnSelector(".Modal-closeButton");
-            });
+            Helper.onceClickOnSelector(".Modal-closeButton");
         }
     }
 
@@ -118,9 +112,7 @@
 
     function jianshuAutoClose() {
         if (Helper.hostEndWith("jianshu.com")) {
-            runWithInterval(() => {
-                Helper.clickOnSelector(".anticon-close");
-            });
+            Helper.onceClickOnSelector(".anticon-close");
         }
     }
 
@@ -183,10 +175,8 @@
      * stackoverflow helper
      */
     function stackoverflow() {
-        runWithInterval(() => {
-            Helper.clickOnSelector(".js-accept-cookies");
-            Helper.clickOnSelector(".js-dismiss");
-        });
+        Helper.onceClickOnSelector(".js-accept-cookies");
+        Helper.onceClickOnSelector(".js-dismiss");
     }
 
 
