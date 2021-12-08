@@ -9,7 +9,7 @@
 // @match       *://zh.wikipedia.org/*
 // @run-at      document-start
 // @grant       none
-// @version     1.0
+// @version     1.1
 // @author      da
 // @downloadURL https://cdn.jsdelivr.net/gh/valbendan/MonkeyKing@main/start.js
 // @supportURL  https://github.com/valbendan/MonkeyKing/issues

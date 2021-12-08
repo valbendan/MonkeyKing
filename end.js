@@ -14,7 +14,7 @@
 // @match       *://*.csdn.net/*
 // @run-at      document-end
 // @grant       none
-// @version     1.0
+// @version     1.1
 // @author      da
 // @downloadURL https://cdn.jsdelivr.net/gh/valbendan/MonkeyKing@main/end.js
 // @supportURL  https://github.com/valbendan/MonkeyKing/issues
