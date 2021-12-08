@@ -34,6 +34,7 @@
 
         try {
             const v = new URL(target);
+            console.info("redirect to:", v);
             location.href = v.href;
         }
         catch (e) {
