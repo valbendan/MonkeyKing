@@ -32,31 +32,58 @@
         setInterval(func, interval);
     }
 
+
+    class Helper {
+        /**
+         * 检查 是否以 host 结束
+         * @param {string} host
+         * @return boolean
+         */
+        static hostEndWith(host) {
+            return location.host.endsWith(host);
+        }
+
+        /**
+         * 点击 css selector 选择的元素
+         * @param {string} selector
+         */
+        static clickOnSelector(selector) {
+            /**
+             * @type {HTMLButtonElement}
+             */
+            const btn = document.querySelector(selector);
+            if (btn) {
+                btn.click();
+            }
+        }
+    }
+
+
     /// 百度贴吧登录屏蔽
     function baiduBBSHideLogin() {
         if (document.location.host !== "tieba.baidu.com") {
             return;
         }
         runWithInterval(() => {
-            document.querySelector("span[class='close-btn']")?.click();
+            Helper.clickOnSelector("span[class='close-btn']");
         });
     }
 
     /// CSDN 登录屏蔽
     function csdnHideLogin() {
-        if (document.location.host.endsWith("csdn.net") === false) {
+        if (Helper.hostEndWith("csdn.net") === false) {
             return;
         }
         runWithInterval(() => {
-            document.querySelector("#passportbox > span")?.click();
+            Helper.clickOnSelector("#passportbox > span");
         });
     }
 
 
     function zhihuAutoClose() {
-        if (document.location.host.endsWith("zhihu.com")) {
+        if (Helper.hostEndWith("zhihu.com")) {
             runWithInterval(() => {
-                document.querySelector(".Modal-closeButton")?.click();
+                Helper.clickOnSelector(".Modal-closeButton");
             });
         }
     }
@@ -90,15 +117,15 @@
 
 
     function jianshuAutoClose() {
-        if (document.location.host.endsWith("jianshu.com")) {
+        if (Helper.hostEndWith("jianshu.com")) {
             runWithInterval(() => {
-                document.querySelector(".anticon-close")?.click();
+                Helper.clickOnSelector(".anticon-close");
             });
         }
     }
 
     function jianshuAutoRedirect() {
-        if (document.location.host.endsWith("jianshu.com") === false) {
+        if (Helper.hostEndWith("jianshu.com") === false) {
             console.log("不是简书");
             return;
         }
@@ -121,7 +148,7 @@
     }
 
     function jianshuAutoConvertUrl() {
-        if (location.host.endsWith("jianshu.com")) {
+        if (Helper.hostEndWith("jianshu.com")) {
             [...document.querySelectorAll('a')].map((a) => {
                 const url = new URL(a.href);
                 if (url.host === 'link.jianshu.com' && url.searchParams.get('t')) {
@@ -136,7 +163,7 @@
      * open github repo in source graph
      */
     function githubInSourceGraph() {
-        if (!document.location.host.endsWith("github.com")) {
+        if (!Helper.hostEndWith("github.com")) {
             return;
         }
         console.log("github run");
@@ -156,17 +183,9 @@
      * stackoverflow helper
      */
     function stackoverflow() {
-        let cookies = null;
-        let dismiss = null;
         runWithInterval(() => {
-            if (!cookies) {
-                cookies = document.querySelector('.js-accept-cookies');
-                cookies?.click();
-            }
-            if (!dismiss) {
-                dismiss = document.querySelector('.js-dismiss');
-                dismiss?.click();
-            }
+            Helper.clickOnSelector(".js-accept-cookies");
+            Helper.clickOnSelector(".js-dismiss");
         });
     }
 
