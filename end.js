@@ -16,7 +16,7 @@
 // @grant       none
 // @version     1.1
 // @author      da
-// @downloadURL https://cdn.jsdelivr.net/gh/valbendan/MonkeyKing@main/end.js
+// @downloadURL https://cdn.jsdelivr.net/gh/valbendan/MonkeyKing@latest/end.js
 // @supportURL  https://github.com/valbendan/MonkeyKing/issues
 // @homepageURL https://github.com/valbendan/MonkeyKing
 // @description 百度贴吧登录屏蔽, CSDN 登录屏蔽, 知乎自动重定向，开源中国，维基百科自动重定向
