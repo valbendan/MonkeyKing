@@ -12,6 +12,7 @@
 // @match       https://serverfault.com/*
 // @match       https://askubuntu.com/*
 // @match       *://*.csdn.net/*
+// @match       https://www.nowcoder.com/*
 // @run-at      document-end
 // @grant       none
 // @version     1.1
@@ -180,6 +181,14 @@
         Helper.onceClickOnSelector(".js-dismiss");
     }
 
+    function nowcoder() {
+        if (Helper.hostEndWith("www.nowcoder.com")) {
+            setInterval(() => {
+                document.querySelector('.ncp-close')?.click();
+            }, 200);
+        }
+    }
+
 
     baiduBBSHideLogin();
     csdnHideLogin();
@@ -190,5 +199,6 @@
     jianshuAutoConvertUrl();
     githubInSourceGraph();
     stackoverflow();
+    nowcoder();
 })();
 
